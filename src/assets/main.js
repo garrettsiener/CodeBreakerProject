@@ -4,7 +4,7 @@ var input = document.getElementById('user-guess');
 
 function guess() {
     //add functionality to guess function here
-    if(answer.value != '' && input.value != ''){
+    if(answer.value == ''){
         setHiddenFields();
     }
 
@@ -38,10 +38,13 @@ function guess() {
 
 function setHiddenFields() {
     answer.value = (Math.floor(Math.random() * 1000)).toString();
+    //answer.value = 1234;
+    answer.value = answer.value.toString();
     while(answer.value.length < 4) {
         answer.value = '0' + answer.value;
     }
     attempt.value = 0;
+    //alert(answer.value);
 }
 
 function setMessage(m){
@@ -55,14 +58,12 @@ function validateInput(i){
     }
     return true;
 }
-
+var html = "";
 function getResults(g) {
-    var html = '<div class="row"><span class="col-md-6">' + input.value + '</span><div class="col-md-6">';
-    var correct = 0;
+    html += '<div class="row"><span class="col-md-6">' + input.value + '</span><div class="col-md-6">';
     for(i=0; i < g.length; i++){
         if(g.charAt(i) == answer.value.charAt(i)){
             html += '<span class="glyphicon glyphicon-ok"></span>';
-            correct++;
         }
 
         else if (answer.value.indexOf(g.charAt(i)) > -1) {
@@ -75,7 +76,7 @@ function getResults(g) {
     }
     html += '</div></div>';
     document.getElementById('results').innerHTML = html;
-    if (correct == g.length) {
+    if (g == answer.value) {
         return true;
     }
 
