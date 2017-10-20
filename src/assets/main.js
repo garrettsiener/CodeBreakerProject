@@ -1,8 +1,8 @@
 var answer = document.getElementById('answer').value;
 var attempt = document.getElementById('attempt').value;
+var input = document.getElementById('user-guess').value;
 
 function guess() {
-    var input = document.getElementById('user-guess').value;
     //add functionality to guess function here
     if(answer != '' && input != ''){
         setHiddenFields();
@@ -37,7 +37,7 @@ function guess() {
 function setHiddenFields() {
     answer = (Math.floor(Math.random() * 9999));
     answer.toString();
-    while(answer.length < 4) {
+    while(answer.length <= 4) {
         answer = '0' + answer;
     }
     attempt = 0;
