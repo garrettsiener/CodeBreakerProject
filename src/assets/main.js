@@ -1,6 +1,6 @@
 var answer = document.getElementById('answer');
 var attempt = document.getElementById('attempt').value;
-var input = document.getElementById('user-guess').value;
+var input = document.getElementById('user-guess');
 
 function guess() {
     //add functionality to guess function here
@@ -8,20 +8,20 @@ function guess() {
         setHiddenFields();
     }
 
-    if(!validateInput(input)){
+    if(!validateInput(input.value)){
         return;
     }
 
     attempt++;
 
 
-    if(getResults(input)){
+    if(getResults(input.value)){
         setMessage("You Win! :)");
         showAnswer(true);
         showReplay();
     }
 
-    else if(!getResults(input) && attempt >= 10 ){
+    else if(!getResults(input.value) && attempt >= 10 ){
         setMessage("You Lose! :(");
         showAnswer(false);
     }
@@ -54,7 +54,7 @@ function validateInput(i){
 }
 
 function getResults(g) {
-    var html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
+    var html = '<div class="row"><span class="col-md-6">' + input.value + '</span><div class="col-md-6">';
     var correct = 0;
     for(i=0; i < g.length; i++){
         if(g.charAt(i) == answer.value.charAt(i)){
