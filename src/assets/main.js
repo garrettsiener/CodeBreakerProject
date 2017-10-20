@@ -47,13 +47,11 @@ function setMessage(m){
 }
 
 function validateInput(i){
-    if(i.length == 4){
-        return true;
+    if(i.length != 4){
+      setMessage("Guesses must be exactly 4 characters long.");
+      return false;
     }
-    else{
-        setMessage("Guesses must be exactly 4 characters long.");
-        return false;
-    }
+    return true;
 }
 
 function getResults(g) {
