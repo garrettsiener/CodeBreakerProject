@@ -1,10 +1,10 @@
-var answer = document.getElementById('answer').value;
+var answer = document.getElementById('answer');
 var attempt = document.getElementById('attempt').value;
 var input = document.getElementById('user-guess').value;
 
 function guess() {
     //add functionality to guess function here
-    if(answer != '' && input != ''){
+    if(answer.value != '' && input != ''){
         setHiddenFields();
     }
 
@@ -35,9 +35,9 @@ function guess() {
 //implement new functions here
 
 function setHiddenFields() {
-    answer = (Math.floor(Math.random() * 1000)).toString();
-    while(answer.length < 4) {
-        answer = '0' + answer;
+    answer.value = (Math.floor(Math.random() * 1000)).toString();
+    while(answer.value.length < 4) {
+        answer.value = '0' + answer.value;
     }
     attempt = 0;
 }
