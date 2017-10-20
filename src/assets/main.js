@@ -1,14 +1,14 @@
-let answer = document.getElementById('answer');
-let attempt = document.getElementById('attempt');
+var answer = document.getElementById('answer').value;
+var attempt = document.getElementById('attempt').value;
 
 function guess() {
-    let input = document.getElementById('user-guess');
+    var input = document.getElementById('user-guess').value;
     //add functionality to guess function here
     if(answer != '' && input != ''){
         setHiddenFields();
     }
 
-    if(!validateInput(input.value)){
+    if(!validateInput(input)){
         return false;
     }
 
@@ -58,9 +58,9 @@ function validateInput(i){
 }
 
 function getResults(g) {
-    html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
-    correct = 0;
-    for(i=0; i < g.length, i++){
+    var html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
+    var correct = 0;
+    for(i=0; i < g.length; i++){
         if(g.charAt(i) == answer.charAt(i)){
             html += '<span class="glyphicon glyphicon-ok"></span>';
             correct++;
@@ -86,13 +86,13 @@ function getResults(g) {
 }
 
 function showAnswer(didWin){
-    document.getElementById('code').innerHTML = answer.value;
+    document.getElementById('code').innerHTML = answer;
     if(didWin){
-        document.getElementById('code').class += " success";
+        document.getElementById('code').className += " success";
     }
 
     else {
-        document.getElementById('code').class += " failure";
+        document.getElementById('code').className += " failure";
     }
 }
 
