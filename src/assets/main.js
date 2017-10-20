@@ -4,7 +4,7 @@ var input = document.getElementById('user-guess').value;
 
 function guess() {
     //add functionality to guess function here
-    if(answer.value != '' || input != ''){
+    if(answer.value != '' && input != ''){
         setHiddenFields();
     }
 
@@ -57,12 +57,12 @@ function getResults(g) {
     var html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
     var correct = 0;
     for(i=0; i < g.length; i++){
-        if(g.charAt(i) == answer.charAt(i)){
+        if(g.charAt(i) == answer.value.charAt(i)){
             html += '<span class="glyphicon glyphicon-ok"></span>';
             correct++;
         }
 
-        else if (answer.indexOf(g.charAt(i)) > -1) {
+        else if (answer.value.indexOf(g.charAt(i)) > -1) {
             html += '<span class="glyphicon glyphicon-transfer"></span>';
         }
 
