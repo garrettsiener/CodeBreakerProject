@@ -4,7 +4,7 @@ var input = document.getElementById('user-guess').value;
 
 function guess() {
     //add functionality to guess function here
-    if(answer.value != '' && input != ''){
+    if(answer.value != '' || input != ''){
         setHiddenFields();
     }
 
@@ -12,9 +12,8 @@ function guess() {
         return;
     }
 
-    else{
-        attempt++;
-    }
+    attempt++;
+
 
     if(getResults(input)){
         setMessage("You Win! :)");
