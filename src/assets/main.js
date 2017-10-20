@@ -1,18 +1,20 @@
 var answer = document.getElementById('answer');
-var attempt = document.getElementById('attempt').value;
+var attempt = document.getElementById('attempt');
 var input = document.getElementById('user-guess');
 
 function guess() {
     //add functionality to guess function here
-    if(answer.value != '' && input != ''){
+    if(answer.value != '' && input.value != ''){
         setHiddenFields();
     }
 
     if(!validateInput(input.value)){
         return;
     }
+    else {
+        attempt.value++;
+    }
 
-    attempt++;
 
 
     if(getResults(input.value)){
@@ -38,7 +40,7 @@ function setHiddenFields() {
     while(answer.value.length < 4) {
         answer.value = '0' + answer.value;
     }
-    attempt = 0;
+    attempt.value = 0;
 }
 
 function setMessage(m){
@@ -82,7 +84,7 @@ function getResults(g) {
 }
 
 function showAnswer(didWin){
-    document.getElementById('code').innerHTML = answer;
+    document.getElementById('code').innerHTML = answer.value;
     if(didWin){
         document.getElementById('code').className += " success";
     }
