@@ -85,7 +85,6 @@ function getResults(g) {
 }
 
 function showAnswer(didWin){
-    document.getElementById('code').innerHTML = answer.value;
     if(didWin){
         document.getElementById('code').className += " success";
     }
@@ -93,6 +92,7 @@ function showAnswer(didWin){
     else {
         document.getElementById('code').className += " failure";
     }
+    document.getElementById('code').innerHTML = answer.value;
 }
 
 function showReplay(){
