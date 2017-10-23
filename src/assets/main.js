@@ -18,13 +18,13 @@ function guess() {
 
 
     if(getResults(input.value)){
-        setMessage("You Win!");
+        setMessage("You Win! :)");
         showAnswer(true);
         showReplay();
     }
 
     else if(attempt.value >= 10 ){
-        setMessage("You Lose!");
+        setMessage("You Lose! :(");
         showAnswer(false);
         showReplay();
     }

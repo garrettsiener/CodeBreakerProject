@@ -18,3 +18,15 @@
 .message {
   font-weight: bold;
 }
+
+.btn-primary{
+  background-color:#8600b3;
+}
+
+.btn-primary:hover{
+  background-color:#9900cc;
+}
+
+.btn-primary:active{
+  background-color:#60ff80;
+}
