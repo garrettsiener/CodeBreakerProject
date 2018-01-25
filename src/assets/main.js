@@ -38,6 +38,7 @@ function guess() {
 
 function setHiddenFields() {
     answer.value = (Math.floor(Math.random() * 10000)).toString();
+    //answer.value = 1234;
     answer.value = answer.value.toString();
     while(answer.value.length < 4) {
         answer.value = '0' + answer.value;
@@ -57,9 +58,11 @@ function validateInput(i){
     }
     return true;
 }
+
 var html = "";
 function getResults(g) {
-    html += '<div class="row"><span class="col-md-6">' + input.value + '</span><div class="col-md-6">';
+    html += '<div class="row"><span class="col-md-6">' + input.value +
+        '</span><div class="col-md-6">' +"<strong>"+ attempt.value + ". </strong>" ;
     for(i=0; i < g.length; i++){
         if(g.charAt(i) == answer.value.charAt(i)){
             html += '<span class="glyphicon glyphicon-ok"></span>';
