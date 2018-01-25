@@ -44,7 +44,7 @@ function setHiddenFields() {
         answer.value = '0' + answer.value;
     }
     attempt.value = 0;
-    //alert(answer.value);
+    alert(answer.value);
 }
 
 function setMessage(m){
@@ -68,7 +68,7 @@ function getResults(g) {
             html += '<span class="glyphicon glyphicon-ok"></span>';
         }
 
-        else if (answer.value.indexOf(g.charAt(i)) > -1) {
+        else if (answer.value.indexOf(g.charAt(i)) != -1) {
             html += '<span class="glyphicon glyphicon-transfer"></span>';
         }
 
